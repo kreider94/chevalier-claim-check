@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import Screen from './Screen';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 import { MdKeyboardBackspace, MdKeyboardReturn } from "react-icons/md";
@@ -22,29 +22,23 @@ import { data } from '../claim-check';
         }
     }, [questions, currentScreen]);
 
-
-    useEffect(() => {
-        console.log(previous)
-    }, [previous]);
-
     const handleAnswer = (e) => {
         e.preventDefault();
 
         const answer = e.target.value;
-    
+
         let found = currentScreen.next.filter(option => {
             return option.conditions[0].value === answer;
         });
 
-        if (found.length) {
+        if (found.length)
             setCurrentScreen(questions.filter(item => item.key === found[0].key)[0])
-        }
     }
 
     const handleReset = () => {
         setCurrentScreen(questions[0]);
     }
-    
+
     const handleBack = () => {
         setCurrentScreen(previous)
     }
@@ -59,7 +53,7 @@ import { data } from '../claim-check';
                             <MDBBtn onClick={handleReset} style={{color: "white"}}>
                                 <MdKeyboardReturn color="white" /> start over
                             </MDBBtn>
-                        : 
+                        :
                             <MDBBtn onClick={handleBack} style={{color: "white"}}>
                                 <MdKeyboardBackspace color="white" /> back
                             </MDBBtn>
@@ -67,8 +61,7 @@ import { data } from '../claim-check';
                         <MDBBtn onClick={handleReset} style={{color: "white"}}>
                             <MdKeyboardReturn color="white" /> start over
                         </MDBBtn>
-                        : null
-                    }
+                    : null}
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
@@ -76,4 +69,3 @@ import { data } from '../claim-check';
 }
 
 export default ScreenContainer
-
