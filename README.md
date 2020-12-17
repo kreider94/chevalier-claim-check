@@ -7,18 +7,15 @@
  - type `npm start` in the console
  - navigate to http://localhost:3000 in your browser window
  
+# Components
 
-This app is created using `create-react-app`
-
-The components consist of
- 
-### ScreenContainer component
+ScreenContainer:
  - takes the json file as input
  - determines which screen is shown (question/case state)
  - sets previous screen for backwards navigation
  - sets back and reset buttons
   
-### Screen component
+Screen:
  - displays current screen
  - handles any answer given
    
